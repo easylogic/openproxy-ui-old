@@ -1,0 +1,14 @@
+/binding/openproxy_setting/build/Debug
+/binding/openproxy_setting/build/binding.sdf
+/binding/openproxy_setting/build/binding.sln
+/binding/openproxy_setting/build/binding.v11.suo
+/binding/openproxy_setting/build/config.gypi
+/binding/openproxy_setting/build/openproxy_setting.vcxproj
+/binding/openproxy_setting/build/openproxy_setting.vcxproj.filters
+/binding/openproxy_setting/build/Release/openproxy_setting.pdb
+/binding/openproxy_setting/build/Release/obj
+/binding/openproxy_setting/build/Release/openproxy_setting.exp
+/binding/openproxy_setting/build/Release/openproxy_setting.lib
+/jam/w2ui/docs
+/jam/w2ui/demos
+/jam/w2ui/js/CodeMirror

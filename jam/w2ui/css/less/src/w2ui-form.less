@@ -1,0 +1,238 @@
+/*************************************************
+* ---- Forms ----
+*/
+
+@form-step-label: 20px;
+@form-step-field: 8;
+
+.w2ui-form {
+	color: @form-color;
+	background-color: @form-background-color;
+	border: @form-border;
+	border-radius: @form-border-radius;
+	padding: 0px;
+
+	> div {
+		position: absolute; 
+		overflow: hidden;
+	}
+
+	.w2ui-form-lock {
+		.opacity(0.15);
+		background-color: @form-lock-background-color;
+		position: absolute; 
+		z-index: 1600;
+		display: none;
+	}
+
+	.w2ui-form-status {
+		padding: 30px;
+		position: absolute;
+		z-index: 1600;
+		width: 200px;
+		height: 80px;
+		font-size: 13px;
+		.opacity(0.8);
+		background-color: @form-status-background-color;
+		color: @form-status-color;
+		text-align: center;
+		border-radius: 5px;
+		border: @form-status-border;
+		display: none;
+	}
+
+	.w2ui-form-header {
+		position: absolute;
+		left: 0;
+		right: 0;
+		border-bottom: @form-header-border-bottom !important;
+		overflow: hidden;
+		color: @form-header-color;
+		font-size: 13px;
+		text-align: center;
+		padding: 8px;
+		.linear-gradient-vertical(@form-header-linear-gradient-start, @form-header-linear-gradient-end);
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+	}
+
+	.w2ui-tabs {
+		position: absolute;
+		left: 0;
+		right: 0;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		padding-top: 5px !important;
+		background-color: @form-tabs-background-color;
+
+		.w2ui-tab.active {
+			background-color: @form-background-color;
+		}
+	}
+
+	.w2ui-page {
+		position: absolute;
+		left: 0;
+		right: 0;
+		overflow: auto;
+		padding: 10px;
+		border-left: @form-page-border;
+		border-right: @form-page-border;
+		background-color: @form-page-background-color;
+		border-radius: 3px;
+	}
+	
+	.w2ui-buttons {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		text-align: center;
+		border-top: @form-buttons-border-top;
+		border-bottom: @form-buttons-border-bottom;
+		background-color: @form-buttons-background-color;
+		padding: 15px 0px !important;
+		border-bottom-left-radius: 3px;
+		border-bottom-right-radius: 3px;
+		
+		input[type="button"], button {
+			width: 80px;
+			margin-right: 5px;
+		}
+	}
+
+	// the rest are different form elements, they are not in page on purpose
+
+	.w2ui-group {
+		background-color: @form-group-background-color;
+		margin: 5px 0px 10px 0px;
+		padding: 10px 5px;
+		border-top: @form-group-border;
+		border-bottom: @form-group-border;
+	}
+	
+	.w2ui-form input[type=checkbox] {
+		margin-top: 6px;
+	}
+	
+	.w2ui-label {
+		float: left;
+		margin-top: 6px;
+		width: 120px;
+		padding: 0px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-align: right;
+		min-height: 20px;
+		&.w2ui-span1 { 
+			width: (@form-step-label * 1); 
+			float: left; 
+		}
+		&.w2ui-span2 { 
+			width: (@form-step-label * 2); 
+			float: left; 
+		} 
+		&.w2ui-span3 { 
+			width: (@form-step-label * 3); 
+			float: left; 
+		} 
+		&.w2ui-span4 { 
+			width: (@form-step-label * 4); 
+			float: left; 
+		} 
+		&.w2ui-span5 { 
+			width: (@form-step-label * 5); 
+			float: left; 
+		} 
+		&.w2ui-span6 { 
+			width: (@form-step-label * 6); 
+			float: left; 
+		} 
+		&.w2ui-span7 { 
+			width: (@form-step-label * 7); 
+			float: left; 
+		} 
+		&.w2ui-span8 { 
+			width: (@form-step-label * 8); 
+			float: left; 
+		} 
+		&.w2ui-span9 { 
+			width: (@form-step-label * 9); 
+			float: left; 
+		} 
+		&.w2ui-span10 { 
+			width: (@form-step-label * 10); 
+			float: left; 
+		} 
+	}
+	
+	.w2ui-field {
+		/* do not include width */
+		margin-left: 128px;
+		padding: 3px;
+		min-height: 20px;
+		&.w2ui-span1 { 
+			margin-left: (@form-step-label + @form-step-field); 
+			float: none; 
+		}
+		&.w2ui-span2 { 
+			margin-left: ((@form-step-label * 2) + @form-step-field); 
+			float: none; 
+		}
+		&.w2ui-span3  { 
+			margin-left: ((@form-step-label * 3) + @form-step-field); 
+			float: none; 
+		}
+		&.w2ui-span4 { 
+			margin-left: ((@form-step-label * 4) + @form-step-field); 
+			float: none; 
+		}
+		&.w2ui-span5 { 
+			margin-left: ((@form-step-label * 5) + @form-step-field); 
+			float: none; 
+		}
+		&.w2ui-span6 { 
+			margin-left: ((@form-step-label * 6) + @form-step-field); 
+			float: none; 
+		}
+		&.w2ui-span7 { 
+			margin-left: ((@form-step-label * 7) + @form-step-field); 
+			float: none; 
+		}
+		&.w2ui-span8 { 
+			margin-left: ((@form-step-label * 8) + @form-step-field); 
+			float: none; 
+		}
+		&.w2ui-span9 { 
+			margin-left: ((@form-step-label * 9) + @form-step-field); 
+			float: none; 
+		}
+		&.w2ui-span10 { 
+			margin-left: ((@form-step-label * 10) + @form-step-field); 
+			float: none; 
+		}
+	}
+	
+	.w2ui-form-tabs {
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	.w2ui-required {
+		position: relative;
+	}
+	
+	.w2ui-required::before {
+		content: '*';
+		position: absolute;
+		margin-top: 5px;
+		margin-left: -9px;
+		color: @form-required-color;
+	}
+
+	.w2ui-error {
+		border: @form-error-border !important;
+		background-color: @form-error-background-color !important;
+	}	
+}

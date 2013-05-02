@@ -1,0 +1,46 @@
+{
+  "name": "w2ui",
+  "version": "1.1.0-jam.1",
+  "description": "The w2ui library is a set of interrellated jQuery plugins. It is not a adhoc port to jQuery, but was initially developed with jQuery in mind.",
+  "homepage": "http://w2ui.com/web/",
+  "author": {
+    "name": "Vitali Malinouski"
+  },
+  "keywords": ["UI"],
+  "jam": {
+    "dependencies": {
+      "jquery":">=1.7.2"
+    },
+    "main": "w2ui.js",
+    "shim": {
+      "deps": ["jquery"],
+      "exports": "w2ui"
+    },
+    "include": [
+      "w2ui.js",
+      "w2ui.min.js",
+      "w2ui.css",
+      "w2ui.min.css"
+    ]
+  },
+ "maintainers": [
+    {
+      "name": "Vitali Malinouski",
+      "email": "vitmalina@gmail.com",
+      "web": "http://w2ui.com" 
+    } 
+  ],
+  "contributors": [
+    {
+      "name": "Vitali Malinouski",
+      "email": "vitmalina@gmail.com",
+      "web": "http://w2ui.com" 
+    } 
+  ],
+ "repository": {
+    "type": "git",
+    "url": "https://github.com/vitmalina/w2ui.git"
+  },
+  "github": "https://github.com/vitmalina/w2ui"
+}
+

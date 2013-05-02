@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OpenProxy Manager v1.0</title>
+	<link rel="stylesheet" href="jam/w2ui/css/w2ui.css" />
+	<script>
+		window.requireNode = window.require;
+		window.gui = require('nw.gui');
+		window.require = undefined;
+	</script>
+	<script src="jam/require.js"></script>
+	<script src="util/global.js"></script>
+	<script>
+		require(["jquery", "w2ui"], function($, w2ui){
+			
+			w2utils.locale({path : "jam/w2ui/", lang : "ko-kr"});
+			
+			var style = "overflow:hidden;"
+			$("body").append("<div id='main_layout'></div>").css({
+				padding: '0px',
+				margin: '0px'
+			});
+			$("#main_layout").css({
+				position: 'absolute',
+				width : '100%',
+				height: '100%'
+			}).w2layout({
+				name : 'main_layout',
+				padding: 0,
+				panels : [
+					{ 
+						type : 'main', 
+						tabs : { 
+							active: 'router',
+							onClick: function(target, data){
+								var content = window.plugins[target].content;
+								
+								if (content) {
+									w2ui['main_layout'].content('main', content);
+									w2ui['main_layout'].refresh();									
+								}
+
+							} 
+						}
+					}
+				]
+			})
+			
+
+			var fs = requireNode("fs");
+			
+
+			window.plugins = { };
+			
+			var plugin_path = "./plugin";
+			var files = fs.readdirSync(plugin_path);
+			var tabs = w2ui['main_layout'].get('main').tabs;
+
+			for (var i  in files) {
+				
+				var id = files[i];
+				var firstIndex = i == 0 ? 0 : -1; 
+				var check = plugin_path + "/" + files[i] + "/index.js";
+				var plugin = check.replace(".js", "");
+				
+				tabs.add({ id : id, caption : 'Loading...'});
+				
+				if (fs.existsSync(check)) {
+					require([plugin], function(obj){
+						// 플러그인 객체 추가
+						window.plugins[obj.id] = obj;
+						
+						global.openproxy.addPlugin(obj);
+						
+						obj.initialize();
+						tabs.set(obj.id, { caption : obj.title});
+						
+						if (obj.id == 'router') {
+							tabs.doClick(obj.id);
+						}				
+					});
+
+				}
+			} 	
+			
+			global.openproxy.init();		
+			
+		})
+	</script>	
+</head>
+<body>
+
+</body>
+</html>
