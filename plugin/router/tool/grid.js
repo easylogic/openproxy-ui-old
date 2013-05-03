@@ -120,11 +120,11 @@ define("plugin/router/tool/grid", [
 					{ field : 'type', caption : 'Type', size:'50px', render : function(val) {
 						return val.type == 'domain' ? 'Domain' : 'Pattern';
 					}},					
-					{ field : 'source', caption : 'Source', size:'30%', resizable: true },
-					{ field : 'target', caption : 'Target', size: '30%', resizable: true, render : function(obj) {
+					{ field : 'source', caption : 'Source', size:'200px', resizable: true },
+					{ field : 'target', caption : 'Target', size: '200px', resizable: true, render : function(obj) {
 						return obj.keep ? '* ' + obj.target : obj.target;
 					}},
-					{ field : 'description', caption : 'Description', size:'30%', resizable: true}
+					{ field : 'description', caption : 'Description', size:'200px', resizable: true}
 				]
 			})
 		},

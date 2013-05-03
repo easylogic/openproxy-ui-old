@@ -9,16 +9,11 @@
   
   "window": {
     "icon": "icon.png",
-    "width": 1024,
-    "height": 768, 
-    "min_width": 1024,
-    "min_height": 768,
-    "toolbar" : false
+    "width": 700,
+    "height": 600, 
+    "min_width": 700,
+    "min_height": 600
   },  
-  
-  "webkit" : {
-  	"plugin" : true
-  },
   
   "repository": "http://github.com/easylogic/openproxy-ui",
   "dependencies" : {

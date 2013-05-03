@@ -15,6 +15,8 @@ define("plugin/logger/index", [
 
 			this.infoview = InfoView;
 			this.infoview.initialize(this);
+			
+			this.listview = this.getListView();
 		
 			// create content area			
 			this.content = $().w2layout({
@@ -39,7 +41,7 @@ define("plugin/logger/index", [
 								}
 							}
 						},
-						content : this.getListView() 
+						content : this.listview 
 					}, 
 					{
 						type : 'right',
@@ -47,7 +49,7 @@ define("plugin/logger/index", [
 						resizable : true,
 						hidden : true,
 						style : 'border-left: 1px solid #cecece',
-						content : InfoView.content
+						content : this.infoview.content
 					}
 				]
 			})
@@ -59,20 +61,44 @@ define("plugin/logger/index", [
 			return $().w2listview({
 					name : 'logger_listview',
 					style : 'overflow:auto;',
+					
+					renderHeader : function($table) {
+						var $thead = $("<thead />");
+						
+						var $tr = $("<tr />");
+						
+						$thead.append($tr)
+						
+						$tr.append($("<td  class='w2ui-head' />").html($("<div />").html('No.').width(50)));
+						$tr.append($("<td  class='w2ui-head' />").html($("<div />").html('P').width(50)));
+						$tr.append($("<td  class='w2ui-head' />").html($("<div />").html('Host').width(200)));
+						$tr.append($("<td  class='w2ui-head' />").html($("<div />").html('Path').width(400)));
+						
+						$table.prepend($thead)
+					},
 					renderItem : function(session) {
 						var box = this.box;
+						
+						if (!box) return;
+						
 						var $dom = $("<tr class='logger_item' ></tr>");
 						
 						$dom.css('border-bottom', '1px solid black');
+						
+						$dom.addClass(this.total % 2 == 0 ? "w2ui-even" : "w2ui-odd");
 						
 						var $tpl = $("<td class='header'></td><td class='protocol'></td><td class='host'></td><td><div class='log'></div></td>");
 						
 						$dom.append($tpl);
 						
-						$dom.find('.header').html(this.total);
-						$dom.find('.protocol').html(session.$('protocol').replace(":", ""));
-						$dom.find('.host').html(session.$('host'));
-						$dom.find('.log').html(session.$('pathname'));
+						$dom.find('.header').html($("<div></div>").html(this.total).width(50).css('padding', '2px'));
+						$dom.find('.protocol').html($("<div></div>").html(session.$('protocol').replace(":", "")).width(50).css('padding', '2px'));
+						$dom.find('.host').html($("<div></div>").html(session.$('host')).width(200).css('padding', '2px'));
+						$dom.find('.log').html($("<div></div>").html(session.$('pathname')).width(400).css('padding', '2px').css({
+							'text-overflow' : 'ellipsis',
+							'white-space' : 'nowrap',
+							'overflow' :' hidden'
+						}));
 						
 						$dom.data('session', session);
 						
@@ -84,8 +110,8 @@ define("plugin/logger/index", [
 								self.content.toggle('right');
 							}
 							
-							$(box).find(".active").removeClass("active").css('background-image', '');
-							$(this).addClass("active").css('background-image', 'linear-gradient(#69b1e0, #3787cc)');
+							$(box).find("> .w2ui-grid-body > .w2ui-grid-records > table tr.w2ui-selected").removeClass("w2ui-selected");
+							$(this).addClass("w2ui-selected");
 							
 						})
 

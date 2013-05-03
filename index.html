@@ -3,6 +3,18 @@
 <head>
 	<title>OpenProxy Manager v1.0</title>
 	<link rel="stylesheet" href="jam/w2ui/css/w2ui.css" />
+	<style>
+	.w2ui-grid {
+ 		 	border: none;
+  			border-radius: none;
+	}
+	
+	.w2ui-tabs .w2ui-tab.active {
+		color: rgb(255, 255, 255);
+		background-color: rgb(236, 84, 84);
+		border: 1px solid #c0c0c0;
+	}	
+	</style>
 	<script>
 		window.requireNode = window.require;
 		window.gui = require('nw.gui');
@@ -37,7 +49,6 @@
 								
 								if (content) {
 									w2ui['main_layout'].content('main', content);
-									w2ui['main_layout'].refresh();									
 								}
 
 							} 
@@ -77,6 +88,7 @@
 						
 						if (obj.id == 'router') {
 							tabs.doClick(obj.id);
+							w2ui['main_layout'].refresh();
 						}				
 					});
 

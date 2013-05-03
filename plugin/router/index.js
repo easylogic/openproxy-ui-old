@@ -77,7 +77,7 @@ define("plugin/router/index", [
 					  		name : 'router_sub_layout',
 					  		panels : [
 					  			{ type : 'left', content : this.sidebar.content, resizable : true, size : 250, style : 'border-right: 1px solid #c0c0c0;' },
-					  			{ type : 'main', content : this.grid.content }
+					  			{ type : 'main', content : this.grid.content, style : 'border-left: 1px solid #c0c0c0;' }
 					  		]
 					  	})
 					}
