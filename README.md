@@ -2,7 +2,7 @@
 
 OpenProxy UI is a manager ui for openproxy.
 
-OpenProxy UI runs on node-webkit.
+OpenProxy UI runs on node-webkit 0.5.1.
 
 
 # Install 
